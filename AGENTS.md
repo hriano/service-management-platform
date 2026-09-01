@@ -1,5 +1,3 @@
-Update `AGENTS.md` using exactly the approved content below. Do not rewrite, summarize, improve, or otherwise modify the content. Do not modify any other file. Do not commit or push changes. Approved content:
-
 # AI Agent Instructions
 
 ## Purpose
