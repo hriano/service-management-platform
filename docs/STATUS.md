@@ -6,22 +6,17 @@ Project setup and AI-Augmented Engineering Workspace bootstrap.
 
 ## Current Work
 
-Establishing the project's minimal context and documentation system before starting product development.
+Designing and validating the project's AI-augmented engineering workflow, including context management, agent handoffs, repository interaction, and persistence of approved project knowledge.
 
-Current branch: `setup/sdd-ai-workspace`
+Working Branch: None
 
 ## Recently Completed
 
-- Created the GitHub repository and local clone.
-- Established the initial repository structure.
-- Installed and configured Codex CLI.
-- Configured the default Codex Windows sandbox.
-- Defined and approved `PROJECT.md` v1.
+Established the initial repository, knowledge structure, agent operating rules, and Git/GitHub workflow required for the AI-augmented engineering workspace.
 
 ## Open Decisions
 
 - Initial product requirements and MVP scope still need to be formalized through the SDD workflow.
-- Technical architecture has not yet been selected and will emerge from requirements.
 
 ## Blockers
 
@@ -29,4 +24,4 @@ None.
 
 ## Next Step
 
-Define `STATUS.md`, followed by the initial `AGENTS.md` instructions for AI coding agents.
+Complete and validate the Context Bootstrap workflow.
