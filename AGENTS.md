@@ -18,15 +18,17 @@ Before performing implementation work, establish the task context in this order:
 
 1. Read `docs/PROJECT.md` for stable project knowledge and engineering principles.
 
-2. Read `docs/STATUS.md` to identify the current work and the explicit context references for the task.
+2. Read `docs/ENGINEERING-WORKFLOW.md` for the approved operational engineering workflow.
 
-3. Read the current specification referenced by `docs/STATUS.md`, when the task requires a specification.
+3. Read `docs/STATUS.md` to identify the current work and the explicit context references for the task.
 
-4. Read ADRs and related specifications explicitly referenced by `docs/STATUS.md` or by the current specification.
+4. Read the current specification referenced by `docs/STATUS.md`, when the task requires a specification.
 
-5. Inspect existing source code and tests directly related to the requested change.
+5. Read ADRs and related specifications explicitly referenced by `docs/STATUS.md` or by the current specification.
 
-6. If implementation reveals an undocumented dependency or a potentially applicable architectural decision that is not referenced by the current context:
+6. Inspect existing source code and tests directly related to the requested change.
+
+7. If implementation reveals an undocumented dependency or a potentially applicable architectural decision that is not referenced by the current context:
    - locate the repository artifact only if its path or identity can be determined from an explicit repository reference or from the directly affected code;
    - otherwise report the missing context and do not make a decision based on an unsupported assumption.
 
@@ -212,6 +214,7 @@ The agent must not create new documentation files or documentation categories un
 The repository recognizes the following documentation artifacts:
 
 - `docs/PROJECT.md` — stable project, product, engineering, and learning context.
+- `docs/ENGINEERING-WORKFLOW.md` — approved operational engineering workflow.
 - `docs/STATUS.md` — current project state and routing to the context required for current work.
 - `specs/<feature>/` — approved feature requirements and their execution artifacts.
 - `docs/adr/` — approved architectural decisions.
