@@ -1,133 +1,160 @@
 # Service Management Platform
 
-## 1. Product
+## Product Overview
 
-Service Management Platform is a software platform for small and medium-sized service-based businesses.
+The Service Management Platform is a business operations platform for small and medium-sized service-based businesses. It centralizes the management of customers, participants, staff, services, resources, schedules, sessions, and bookings so that businesses can manage their daily operations through a connected operational platform instead of relying on disconnected tools.
 
-Its purpose is to reduce the operational complexity involved in managing the core elements of a service business, including customers, staff, services, resources, memberships, pricing, scheduling, and bookings.
+The platform is designed for businesses whose primary value is delivered through services performed by people, usually involving scheduled time, customers or participants, staff, and shared resources. Booking is a capability of the platform, not the definition of the product.
 
-Booking is a capability of the platform, not the definition of the product.
+The initial reference domain is a dance studio, but the product is intentionally designed as a multi-industry service management platform rather than a dance-studio-specific system. It models reusable service-business concepts while using the reference domain to validate them.
 
-A dance studio will be used as the initial validation domain because it provides a realistic combination of customers, staff, rooms, schedules, memberships, pricing, and bookings.
+The product aims to reduce operational complexity, improve visibility into daily operations, support better use of resources, and provide a foundation that can evolve with the business. Long term, it may evolve from an operational management platform into a more intelligent platform capable of supporting and executing workflows under business-defined rules.
 
-However, the platform must be designed around reusable service-business concepts rather than dance-studio-specific assumptions.
+**Mission:** Help service-based businesses operate with confidence by making their daily operations simple, connected, and accessible.
 
-The architecture and domain model should support expansion to other service-based businesses with minimal structural refactoring, while avoiding premature generalization.
+## Problem
 
----
+Small and medium-sized service-based businesses often manage their daily operations using multiple disconnected tools such as calendars, spreadsheets, messaging applications, and specialized systems. Operational information becomes fragmented across these tools, making it difficult to maintain a consistent view of customers, participants, staff, services, schedules, bookings, and shared resources.
 
-## 2. Problem
+As the business grows, this fragmentation increases operational complexity and can lead to:
 
-Service-based businesses often coordinate their operations through a combination of manual processes, spreadsheets, messaging applications, calendars, and disconnected software tools.
+- duplicated or inconsistent information;
+- scheduling and resource conflicts;
+- repetitive administrative work;
+- reduced visibility into daily operations;
+- greater risk of operational errors; and
+- difficulty obtaining the information needed to make timely decisions.
 
-As the business grows, managing customers, staff availability, services, resources, pricing, memberships, schedules, and bookings becomes increasingly complex.
+Many existing tools address isolated parts of the operation rather than the business operation as a connected whole. The product addresses this problem by providing an integrated operational platform where the information and processes required for daily service delivery can be managed together.
 
-The platform aims to centralize these operational capabilities and reduce the effort required to manage them without introducing unnecessary complexity.
+## Target Market
 
----
+The primary target market is small and medium-sized service-based businesses that manage scheduled services involving customers or participants, staff, and shared resources.
 
-## 3. Scope
+These businesses commonly have:
 
-The platform may support business capabilities including:
+- services delivered at scheduled times;
+- staff members or specialists responsible for service delivery;
+- customers and, when applicable, distinct service participants;
+- shared or limited resources such as rooms, spaces, or equipment;
+- recurring appointments, sessions, courses, or programs;
+- a need to coordinate availability, capacity, and bookings;
+- operational information distributed across multiple tools; and
+- increasing administrative complexity as the business grows.
 
-- Customer management
-- Staff and specialist management
-- Service management
-- Resource and room management
-- Membership management
-- Pricing
-- Scheduling
-- Booking management
+Representative industries include dance studios; fitness, yoga, and Pilates businesses; martial arts and sports academies; music schools; education and training providers; beauty and barber businesses; wellness and healthcare service providers; and photography and other appointment-based professional services.
 
-This list defines the general product domain, not the MVP.
+These industries are examples of the target domain rather than product-specific verticals. The platform models the common operational concepts shared across service businesses instead of being designed around one industry.
 
-Individual capabilities and features must be introduced through specifications based on actual product requirements.
+The initial target does not include businesses whose primary operation is manufacturing, retail-only or e-commerce, logistics, inventory-centered operations, financial services, or general-purpose ERP replacement.
 
----
+## Product Principles
 
-## 4. Engineering Vision
+### Reduce Operational Complexity
 
-The project will be developed as a real, production-oriented software system rather than as a collection of isolated learning exercises.
+Every feature should reduce operational complexity instead of increasing it. The platform should simplify how businesses operate rather than merely digitizing existing complexity.
 
-The engineering approach is backend-centered while covering the complete delivery lifecycle of the product.
+### Simple and Predictable Workflows
 
-The system is expected to progressively include:
+Operational workflows should be simple, intuitive, and predictable for the people who use them.
 
-- C# and .NET backend development
-- HTTP and REST APIs
-- Relational database persistence
-- Authentication and authorization
-- Automated unit, integration, API, and end-to-end testing where appropriate
-- A frontend consuming the backend API
-- Containerization
-- CI/CD
-- Deployment
-- Observability
-- AI-assisted software engineering
+### Information Available for Decisions
 
-Architecture, patterns, libraries, and infrastructure technologies must be selected based on actual requirements and justified engineering decisions rather than predetermined for learning purposes.
+Operational information should be available when it is needed to support day-to-day decisions.
 
----
+### Solve the Most Important Operational Problems First
 
-## 5. Learning & Professional Objectives
+The Operational MVP should address the most important operational problems before attempting to replace every existing tool or supporting process.
 
-This project has two simultaneous outcomes:
+## Domain Overview
 
-1. Build a useful, production-oriented software product.
-2. Develop and demonstrate professional software engineering capability.
+The platform operates in the domain of service business operations. Its central domain concept is a **Service**: what the business offers and delivers to its customers or participants. A Service defines what is delivered and may describe characteristics such as its purpose, duration, price, requirements, level, or other relevant attributes.
 
-The project will be used to develop practical experience in:
+A **Session** is a specific scheduled occurrence of a Service. It determines when and where the Service is delivered, who is responsible for delivering it, and the operational conditions under which it occurs.
 
-- Backend engineering with C# and .NET
-- Software architecture and system design
-- Automated testing and SDET practices
-- Git and GitHub engineering workflows
-- Spec-Driven Development
-- CI/CD and software delivery
-- Code review
-- Technical decision-making
-- AI-assisted software engineering
-- Context engineering for AI systems
-- Coding-agent supervision and orchestration
+A **Booking** is a commitment that reserves participation or capacity for a Customer or Participant in a Service or Session.
 
-AI agents may generate a significant portion of the implementation when appropriate.
+An **Enrollment** represents participation in a Service that normally extends across multiple Sessions, such as a course or program.
 
-However, AI is used to accelerate engineering work, not to replace engineering understanding.
+**Customer** and **Participant** are distinct concepts. A Customer is the person or entity responsible for the relationship with the business and may be responsible for bookings, enrollments, or payments. A Participant is the person who receives or participates in the Service. The same person may act as both Customer and Participant.
 
-Manual implementation may be intentionally used when it provides meaningful learning value. In selected cases, the same problem may be implemented manually and with an AI agent to compare approaches and deepen technical understanding.
+**Staff** are the people involved in operating the business, including specialists or instructors who deliver Services and other supporting roles.
 
----
+**Resources** are limited assets required for service delivery, such as rooms, spaces, equipment, or other assignable assets.
 
-## 6. Engineering Principles
+**Availability** represents whether a Staff member or Resource can be assigned during a given period without violating scheduling or operational constraints.
 
-### Reduce operational complexity
+The core operational relationship is:
 
-Every feature should reduce operational complexity instead of increasing it.
+**Service → Session → Booking / Enrollment → Attendance / Service Delivery**
 
-### Technical ownership
+The dance studio is the initial reference domain. Examples include classes, private lessons, workshops, instructors, students, guardians, rooms, levels, capacity, attendance, and progression. These examples validate the domain model but do not redefine the core concepts in a dance-studio-specific way.
 
-Never merge a solution that the engineer cannot technically defend.
+## Business Capabilities
 
-The engineer must be able to explain the relevant design decisions, implementation logic, abstractions, transactions, tests, failure scenarios, trade-offs, and the impact of changing requirements.
+The platform is organized around business capabilities rather than software features or technical components.
 
-### Simplicity
+### Core Capabilities
 
-Prefer the simplest solution that satisfies the actual requirements.
+- **Service Management:** Manage what the business offers and delivers as services.
+- **Customer Management:** Manage the people or entities that maintain the commercial or operational relationship with the business.
+- **Participant Management:** Manage the people who receive or participate in services.
+- **Session Management:** Manage scheduled occurrences of services, including their time, capacity, assigned staff, and required resources.
+- **Booking Management:** Manage commitments that reserve participation or capacity in services or sessions.
 
-Avoid unnecessary abstraction, premature generalization, and process bureaucracy.
+### Supporting Capabilities
 
-### Requirements drive architecture
+- **Staff Management:** Manage the people involved in delivering or supporting business operations.
+- **Resource Management:** Manage limited assets required for service delivery, such as rooms, spaces, or equipment.
+- **Availability Management:** Determine and manage when staff and resources can be assigned without conflicting with operational constraints.
+- **Enrollment Management:** Manage participation in services that extend across multiple sessions, such as courses or programs.
+- **Attendance Management:** Track whether participants attend scheduled service delivery.
 
-Architecture must emerge from actual product and quality requirements.
+### Strategic Capabilities
 
-Patterns and technologies must solve identified problems rather than be introduced only because they are considered best practices.
+- **Operational Monitoring:** Provide visibility into the current state of business operations.
+- **Reporting:** Provide structured information about operational activity and results.
+- **Analytics:** Support analysis of operational data to identify patterns, performance, and opportunities for improvement.
 
-### Generalize from real needs
+## Operational MVP
 
-Use the dance studio as the first concrete validation domain, but model reusable service-business concepts whenever the evidence supports them.
+The first release is an Operational MVP. Its purpose is to validate that a service-based business can use the platform as its primary tool for managing its essential daily operations, while some supporting or advanced processes may continue to use external tools.
 
-Avoid both domain-specific coupling and premature abstraction.
+The MVP is not intended to replace every existing business tool or implement every platform capability.
 
-### AI does not lower engineering standards
+### MVP Hypothesis
 
-AI-generated code must be reviewed, tested, understood, and evaluated using the same engineering standards as human-written code.
+Service-based businesses are willing to adopt a platform that centralizes their daily operations, even if some supporting processes continue to be managed with external tools during the initial stages.
+
+### Included Capabilities
+
+The Operational MVP includes:
+
+- Participant Management
+- Session Management
+- Booking Management
+- Enrollment Management
+- Basic Availability Validation
+
+These capabilities define the initial product scope. Their detailed functional requirements, business rules, scenarios, and acceptance criteria will be defined progressively through feature specifications.
+
+### Deferred Capabilities
+
+The following are intentionally deferred beyond the initial Operational MVP:
+
+- Advanced Service Management
+- Advanced Staff Management
+- Advanced Resource Management
+- Operational Monitoring
+- Reporting
+- Analytics
+- Advanced Availability Management
+- Workflow Automation
+- Notifications
+- Business Configuration Enhancements
+
+Deferred capabilities are not excluded from the product; they are not required to validate the initial Operational MVP.
+
+### MVP Success
+
+The Operational MVP is successful when a target service-based business can manage an entire day of essential operations using the platform as its primary operational tool, while relying on external tools only for non-critical supporting activities.
