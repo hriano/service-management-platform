@@ -29,8 +29,13 @@ Start with:
 2. `AGENTS.md`
 3. `docs/STATUS.md`
 
-Use `STATUS.md` to identify additional context required for the
-current work, such as active specifications or referenced ADRs.
+Use `STATUS.md` as the authoritative source for the current work and next
+step, and to identify any additional context required, such as active
+specifications or referenced ADRs.
+
+Do not replace the current work or next step defined in `STATUS.md` with
+work inferred from project knowledge, chat history, role-specific reasoning,
+or general methodology.
 
 Load additional documentation only when it is relevant to the
 current task.
