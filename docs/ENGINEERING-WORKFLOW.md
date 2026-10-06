@@ -18,12 +18,101 @@ control without creating unnecessary process overhead.
 5. Process and review depth must remain proportional to risk, complexity,
    and learning value.
 
+## Context Views
+
+### Project & Engineering Workflow
+
+**Owns:** The engineering operating model, tooling workflow, repository
+knowledge structure, Context Bootstrap / Session Handoff, SDD,
+Git/GitHub/Jira workflow, and AI-agent governance.
+
+**Does Not Own:** Work assigned to another Context View.
+
+**Boundary / Escalation:** It may identify and recommend work belonging to
+another Context View, but must not silently assume that role or execute the
+subsequent stage without explicit human direction.
+
+### Product & Requirements
+
+**Owns:** Product intent, operational problems, Product Backlog from the
+product perspective, Epics/Stories, prioritization/refinement, business needs,
+expected behavior, business rules, Acceptance Criteria, functional scope,
+product clarification, and `spec.md` when justified.
+
+**Does Not Own:** Technical design, implementation, Codex execution, branch
+creation for implementation, or integration.
+
+**Boundary / Escalation:** Approval of a Story or `spec.md` approves product
+intent only and never implicitly authorizes technical design, branch creation,
+Codex execution, implementation, or integration.
+
+### Architecture & Technical Design
+
+**Owns:** The technical HOW for approved product intent, including
+architecture, boundaries, APIs/contracts, persistence, security, concurrency,
+transactions, patterns, technical dependencies, `plan.md` when justified,
+ADRs when justified, and technical trade-offs.
+
+**Does Not Own:** Material product decisions or implementation authorization.
+
+**Boundary / Escalation:** It must not invent or silently change material
+product decisions. Material product ambiguity returns to Product &
+Requirements. Approved technical design may be declared Ready for
+Implementation, but this does not authorize implementation or Codex execution.
+
+### Implementation & Code Review
+
+**Owns:** Implementation in C#/.NET, authorized Codex execution, code review,
+debugging, scoped refactoring, verification against approved product and
+technical intent, and preparation of changes for review.
+
+**Does Not Own:** Scope changes, architecture redesign, integration, or merge.
+
+**Boundary / Escalation:** It may make local implementation decisions within
+established boundaries. Material product decisions return to Product &
+Requirements. Material architecture decisions return to Architecture &
+Technical Design. Authorization to implement does not authorize scope changes,
+architecture redesign, integration, or merge. Human review remains required
+before integration.
+
+### Quality & SDET
+
+**Owns:** Quality strategy, unit/integration/API/E2E test design and
+automation, testability, risk-based coverage, regression, quality gates, CI
+testing, defect analysis, and verification against approved expectations.
+
+**Does Not Own:** Product behavior or architecture.
+
+**Boundary / Escalation:** It may derive test scenarios from approved
+requirements and identify defects, risks, and ambiguities. It must not silently
+redefine product behavior or architecture. Material product questions return
+to Product & Requirements. Material technical-design questions return to
+Architecture & Technical Design. Quality participates throughout delivery
+rather than only after implementation.
+
+### Transversal Rule
+
+A Context View may recommend the next Context View but must not silently assume
+it. Completion or approval of work in one Context View never implicitly
+authorizes the next stage. The human retains authority over transitions between
+Context Views and final integration.
+
 ## Context Bootstrap
 
 A new working session reconstructs the Minimum Effective Context
 from authoritative repository sources.
 
-Start with:
+As part of the Minimum Effective Context:
+
+1. Identify the current chat's Context View.
+2. Load that Context View's responsibility boundary from this document.
+3. Continue using `docs/PROJECT.md`, `AGENTS.md`, and `docs/STATUS.md`
+   according to the bootstrap rules below.
+4. Load only the responsibility context needed for the current Context View
+   rather than all Context Views, unless additional boundaries are needed for
+   a transition.
+
+Start the repository context with:
 
 1. `docs/PROJECT.md`
 2. `AGENTS.md`
