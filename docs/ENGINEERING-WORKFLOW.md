@@ -118,18 +118,97 @@ Start the repository context with:
 2. `AGENTS.md`
 3. `docs/STATUS.md`
 
-Use `STATUS.md` as the authoritative source for the current work and next
-step, and to identify any additional context required, such as active
-specifications or referenced ADRs.
+### Repository and Conversation Authority
 
-Do not replace the current work or next step defined in `STATUS.md` with
-work inferred from project knowledge, chat history, role-specific reasoning,
-or general methodology.
+Context Bootstrap establishes the persisted project state from the
+repository before evaluating conversation history as supplementary
+working context.
+
+Knowledge must be classified according to the following rules.
+
+#### 1. Authoritative Persisted State
+
+Knowledge is authoritative when it is recorded in the repository
+Source of Truth responsible for that knowledge and is currently
+valid, rather than draft, proposed, or superseded.
+
+`STATUS.md` defines the persisted Current Work and Next Step.
+
+Conversation history must not be presented as persisted repository
+state or silently replace its authoritative contents.
+
+#### 2. Approved but Unpersisted Working Context
+
+A conversational decision qualifies only when all conditions hold:
+
+- The human explicitly approved the specific decision.
+- The approval occurred after the relevant persisted checkpoint,
+  and this ordering can be established.
+- No later applicable decision supersedes it.
+- No newer authoritative persisted knowledge contradicts it.
+
+Agent proposals, continued discussion, inferred agreement,
+absence of objection, and requests for clarification do not
+constitute human approval.
+
+A later explicitly approved decision may supersede an earlier
+decision without automatically modifying the repository.
+
+Valid approved working context may represent progress or a change
+beyond the persisted checkpoint. It may be used to continue work
+without repeating completed decisions, provided its unpersisted
+status remains explicit.
+
+A superseded decision must not be treated as current.
+
+#### 3. Unverified Working Context
+
+Conversation-derived knowledge that cannot satisfy the conditions
+for Approved but Unpersisted Working Context is unverified.
+
+This includes unapproved proposals, exploratory discussions,
+uncertain approval or temporal ordering, unresolved conflicts,
+and potentially superseded decisions whose validity cannot
+be established.
+
+Report unverified context when it is relevant to the current work
+or could cause an incorrect decision. Do not include irrelevant
+historical discussions.
+
+Unverified context must not be used to advance project state
+or establish authoritative decisions.
+
+When conflicting decisions cannot be reliably ordered or
+reconciled, request human clarification rather than selecting
+a decision by inference.
+
+#### 4. Continuation, Persistence and Authorization
+
+Context Bootstrap must distinguish:
+
+- Authoritative Persisted State;
+- Approved but Unpersisted Working Context;
+- Unverified Working Context requiring human reconciliation.
+
+Report the persisted Current Work and Next Step separately from
+any effective working position established by valid, explicitly
+approved, unpersisted decisions.
+
+Before a material transition, evaluate whether relevant
+unpersisted knowledge should be persisted.
+
+Approval of a decision does not automatically authorize
+repository modifications, Jira operations, branch creation,
+implementation, integration, or transitions between Context Views.
+
+The human retains authority over unresolved decisions,
+state-changing actions, and transitions.
+
+Use `STATUS.md` to identify any additional context required, such as active
+specifications or referenced ADRs.
 
 Load additional documentation only when it is relevant to the
 current task.
-
-Repository knowledge remains authoritative.
 
 ## Session Handoff
 
