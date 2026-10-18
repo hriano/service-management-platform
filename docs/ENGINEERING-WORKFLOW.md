@@ -107,7 +107,8 @@ As part of the Minimum Effective Context:
 1. Identify the current chat's Context View.
 2. Load that Context View's responsibility boundary from this document.
 3. Continue using `docs/PROJECT.md`, `AGENTS.md`, and `docs/STATUS.md`
-   according to the bootstrap rules below.
+   according to the bootstrap rules below, then retrieve the shared Working
+   Baseline from `context/working-baseline:docs/WORKING-BASELINE.md`.
 4. Load only the responsibility context needed for the current Context View
    rather than all Context Views, unless additional boundaries are needed for
    a transition.
@@ -117,6 +118,46 @@ Start the repository context with:
 1. `docs/PROJECT.md`
 2. `AGENTS.md`
 3. `docs/STATUS.md`
+
+### Shared Working Baseline
+
+After reading the authoritative repository context on `main`, read the latest
+`docs/WORKING-BASELINE.md` from the dedicated
+`context/working-baseline` branch. Always resolve this stable branch/path;
+a checkpoint SHA remembered by a chat may be outdated.
+
+The Working Baseline is an intermediate, cross-chat record of conversational
+progress toward the current task and the next official checkpoint. It is not
+a second `STATUS.md`, and cannot silently override official project state.
+Use only relevant, verified entries to establish the effective working
+position. If the official state has changed, reconcile the baseline before
+relying on it; unresolved conflicts require human clarification.
+
+When the human explicitly approves an unambiguous, relevant decision, or
+another meaningful intermediate working-state change is verified, update the
+Working Baseline automatically where GitHub access permits, under the
+standing authorization limited to that branch and file. Do not treat agent
+proposals, silence, or inferred agreement as approvals. Mark proposals or
+uncertainties as pending or unverified, not approved. Avoid redundant writes.
+
+For each publication:
+1. Fetch the latest Working Baseline and its blob SHA from the dedicated
+   branch; consult current official context as needed.
+2. Reconcile new information with the published baseline and authoritative
+   repository state. Stop and request clarification for unresolved conflicts.
+3. Update only `docs/WORKING-BASELINE.md` on
+   `context/working-baseline`, passing the current blob SHA to prevent
+   overwriting concurrent changes. If the write is rejected, re-read and
+   reconcile before retrying.
+4. Confirm the published commit/file SHA and report a concise change summary.
+   If publication was not completed, report that explicitly.
+
+This is an experimental, best-effort ChatGPT-assisted process, not a
+guaranteed trigger on every message. It grants no authority to modify
+`main`, official specifications, product knowledge, sprint state, or
+implementation branches. Those changes retain the existing authorization,
+review, and PR/merge requirements. When intermediate decisions are officially
+persisted, reconcile the Working Baseline to avoid stale duplication.
 
 ### Repository and Conversation Authority
 
@@ -199,7 +240,9 @@ unpersisted knowledge should be persisted.
 
 Approval of a decision does not automatically authorize
 repository modifications, Jira operations, branch creation,
-implementation, integration, or transitions between Context Views.
+implementation, integration, or transitions between Context Views,
+except for the narrowly scoped, standing authorization to record verified
+working context in the dedicated Working Baseline as defined above.
 
 The human retains authority over unresolved decisions,
 state-changing actions, and transitions.
