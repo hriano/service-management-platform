@@ -24,6 +24,14 @@
 - Official repository changes continue through the established review and PR process. Automatic baseline publication is limited to this dedicated branch and artifact.
 - Automatic publication is experimental; its reliability will be evaluated and the approach may be revised.
 
+
+## Approved Working Decisions — Learning & Session Practice (2026-11-11)
+- Primary learning objective: develop an **AI-Native End-to-End Software Engineering** profile capable of discovering business problems, designing justified solutions, orchestrating an AI-assisted software factory, assuring code quality, product quality and agreed scope, and delivering verifiable working software.
+- Organize SMP learning sessions around those end-to-end capabilities and real product problems, rather than around learning tools in isolation. Learn technologies and tools as needed to solve actual problems; retain technical understanding and human review of generated code.
+- Incorporate automated code quality, appropriate tests, independent review and evidence-based quality gates progressively as cross-cutting learning and engineering concerns; specific tooling and implementation require their own decisions and authorization.
+- At the end of each working session, prepare the next day's plan with a 7:00–9:00 a.m. timetable, objectives, concrete tasks, expected deliverable, preparation and a copy-ready prompt for the appropriate Context View.
+- These are approved learning and session-practice decisions, not changes to the official MVP, Current Work, Sprint, architecture, or permission to design, implement, create branches, open PRs or merge. Respect Context View transitions and separate authorizations.
+
 ## Pending Implementation / Verification
 - Validate cross-chat discovery and update behavior in practice; ChatGPT does not guarantee execution of tools on every turn.
 - Confirm whether future baseline updates consistently capture all relevant approved decisions.
