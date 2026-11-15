@@ -39,6 +39,14 @@
 - Aim for provider portability where practical and separation of reusable factory configuration from each project's business context, code, secrets and client data.
 - This approval is strategic only. Factory architecture, repository placement, tooling, implementation, project changes, branches, PRs and merges remain undecided and require their respective authorization and Context View transitions.
 
+
+## Approved Working Decision — Interview-Ready Evidence (2026-11-16)
+- Treat technical interview preparation and credible professional storytelling as a continuous part of the AI-native engineering learning objective, alongside SMP and the reusable agentic factory.
+- Each significant delivery should aim to yield three outcomes: working software, improved reusable factory capability, and defensible professional evidence of engineering decisions and outcomes.
+- Build interview narratives from actual problems, solution rationale, AI-agent orchestration, quality assurance and measured impact; preserve authentic artifacts such as code reviews, tests, CI results and decisions where useful and safe.
+- Practice structured technical explanations in English, including probing follow-up questions and the ability to defend trade-offs and limitations. Do not invent professional experience, results or metrics.
+- Keep factory practices informed by relevant current engineering and hiring expectations, evaluating them against demonstrated engineering value rather than tool popularity; no specific tool, architecture, repository change or implementation is approved by this decision.
+
 ## Pending Implementation / Verification
 - Validate cross-chat discovery and update behavior in practice; ChatGPT does not guarantee execution of tools on every turn.
 - Confirm whether future baseline updates consistently capture all relevant approved decisions.
