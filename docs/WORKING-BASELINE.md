@@ -32,6 +32,13 @@
 - At the end of each working session, prepare the next day's plan with a 7:00–9:00 a.m. timetable, objectives, concrete tasks, expected deliverable, preparation and a copy-ready prompt for the appropriate Context View.
 - These are approved learning and session-practice decisions, not changes to the official MVP, Current Work, Sprint, architecture, or permission to design, implement, create branches, open PRs or merge. Respect Context View transitions and separate authorizations.
 
+
+## Approved Working Decision — Reusable Agentic Software Factory (2026-11-16)
+- Add a third, complementary long-term objective: build a **reusable agentic software factory** as a professional asset for future own products and independent client projects, alongside (1) developing an AI-native end-to-end engineering profile and (2) delivering SMP as a real, quality product.
+- Develop and validate the factory incrementally through real SMP delivery needs, then extract reusable project-agnostic workflows, agent roles, skills, templates, quality gates and delivery/evaluation practices; avoid premature complex multi-agent infrastructure.
+- Aim for provider portability where practical and separation of reusable factory configuration from each project's business context, code, secrets and client data.
+- This approval is strategic only. Factory architecture, repository placement, tooling, implementation, project changes, branches, PRs and merges remain undecided and require their respective authorization and Context View transitions.
+
 ## Pending Implementation / Verification
 - Validate cross-chat discovery and update behavior in practice; ChatGPT does not guarantee execution of tools on every turn.
 - Confirm whether future baseline updates consistently capture all relevant approved decisions.
