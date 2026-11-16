@@ -55,6 +55,15 @@
 - Jira remains responsible for backlog and Sprint work management; the map is for product discovery comprehension and traceability, not a replacement for Jira.
 - Architecture, technology choice, repository placement, data format, implementation, branch creation, PRs, and merge remain undecided and require separate approval and authorization in the appropriate Context Views.
 
+
+## Approved Working Decision — Automatically Generated Discovery Map (2026-11-17)
+- The Discovery Map will be an automatically generated, derived view rather than a manually maintained map.
+- Chat-assisted Discovery work will identify a structured change describing the affected concept, type, status, relationships, and authoritative source reference; the human retains approval authority for material decisions.
+- Approved definitions remain in their authorized sources. The map may contain regenerable navigation metadata and clearly identified derived summaries, but it must not become a competing source of truth.
+- A lightweight generator should rebuild the local map from authorized sources and relevant classified working context within seconds, avoiding manual creation, connection, coloring, or reorganization of nodes.
+- Approved, pending, and unverified information must remain visibly distinguishable and must preserve provenance. Automation must not promote pending or unverified information to approved status.
+- This decision establishes the feeding and update model only. Viewer technology, generator implementation, repository placement, data schema, file changes, branches, Pull Requests, and merge remain undecided and unauthorized.
+
 ## Pending Implementation / Verification
 - Validate cross-chat discovery and update behavior in practice; ChatGPT does not guarantee execution of tools on every turn.
 - Confirm whether future baseline updates consistently capture all relevant approved decisions.
