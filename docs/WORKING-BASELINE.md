@@ -47,6 +47,14 @@
 - Practice structured technical explanations in English, including probing follow-up questions and the ability to defend trade-offs and limitations. Do not invent professional experience, results or metrics.
 - Keep factory practices informed by relevant current engineering and hiring expectations, evaluating them against demonstrated engineering value rather than tool popularity; no specific tool, architecture, repository change or implementation is approved by this decision.
 
+
+## Approved Working Decision — Local Read-Only Discovery Map (2026-11-17)
+- Adopt a navigable, interactive Discovery Map as a proposed supporting view for quickly understanding SMP capabilities, needs, business rules, scenarios, approved decisions, and open questions, starting with Participant Management.
+- Initial access is local on the user's development computer; cross-device access may be revisited later. No public hosting, GitHub Pages deployment, or custom login is needed for this initial scope.
+- The map is read-only: it does not edit requirements, approve decisions, or become a competing source of truth. Updates must follow the authorized requirements/documentation workflow, and the view should reflect valid definitions from the appropriate authoritative sources.
+- Jira remains responsible for backlog and Sprint work management; the map is for product discovery comprehension and traceability, not a replacement for Jira.
+- Architecture, technology choice, repository placement, data format, implementation, branch creation, PRs, and merge remain undecided and require separate approval and authorization in the appropriate Context Views.
+
 ## Pending Implementation / Verification
 - Validate cross-chat discovery and update behavior in practice; ChatGPT does not guarantee execution of tools on every turn.
 - Confirm whether future baseline updates consistently capture all relevant approved decisions.
