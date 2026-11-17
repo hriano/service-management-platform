@@ -64,6 +64,15 @@
 - Approved, pending, and unverified information must remain visibly distinguishable and must preserve provenance. Automation must not promote pending or unverified information to approved status.
 - This decision establishes the feeding and update model only. Viewer technology, generator implementation, repository placement, data schema, file changes, branches, Pull Requests, and merge remain undecided and unauthorized.
 
+
+## Approved Working Decision — Structured Discovery Projection Pipeline (2026-11-18)
+- Feed the Discovery Map through incremental structured changes produced by chat-assisted Discovery work rather than by repeatedly reinterpreting the complete source set.
+- Before an item enters the map, it must be represented in a persisted, classified source: an authoritative source for authoritative knowledge, or an authorized working-context record such as the Working Baseline for approved-but-unpersisted, pending, or unverified information.
+- A deterministic validator will check the structured change's schema, stable identity, provenance, classification/status, permitted state transition, source reference, and relationships. It must not interpret requirements or make approval decisions.
+- After validation, apply the change to a derived, regenerable index optimized for map navigation. The index has no independent authority and must preserve links and revisions for its contributing sources.
+- The viewer consumes the derived index and remains separated from the source-ingestion and validation mechanism, allowing the viewer or index storage technology to evolve independently.
+- This decision approves the conceptual pipeline only. Node and relationship taxonomy, storage format (including JSON or SQLite), viewer, generator technology, repository placement, local synchronization mechanism, implementation, files, branches, Pull Requests, and merge remain undecided and unauthorized.
+
 ## Pending Implementation / Verification
 - Validate cross-chat discovery and update behavior in practice; ChatGPT does not guarantee execution of tools on every turn.
 - Confirm whether future baseline updates consistently capture all relevant approved decisions.
