@@ -73,6 +73,16 @@
 - The viewer consumes the derived index and remains separated from the source-ingestion and validation mechanism, allowing the viewer or index storage technology to evolve independently.
 - This decision approves the conceptual pipeline only. Node and relationship taxonomy, storage format (including JSON or SQLite), viewer, generator technology, repository placement, local synchronization mechanism, implementation, files, branches, Pull Requests, and merge remain undecided and unauthorized.
 
+
+## Approved Working Decision — Simplified Functionality-Centered Discovery View (2026-11-19)
+- Use **Functionality** as the only primary navigation element in the initial Discovery Map. The system view will list all SMP functionalities with a concise description, source reference, and summary of defined rules and outstanding work.
+- Selecting a functionality will show two simple bullet collections: **Business Rules** and **Pending Items**. Do not represent capabilities, problems, domain concepts, scenarios, decisions, Stories, or semantic relationships as first-class visual nodes in the initial view.
+- Display Business Rules with only two user-facing authority states: **Approved Working** for a rule explicitly approved in chat and persisted as working context but not yet incorporated into its designated official source; and **Authoritative** for a rule incorporated into the current official source.
+- Use **Pending Items** as one deliberately broad collection for needs, questions, ambiguities, and matters requiring deeper review. Do not introduce additional visible pending-item taxonomies unless demonstrated usage requires them.
+- Keep description, source, rule state, and pending-item provenance sufficient to preserve traceability without turning the view into another source of truth.
+- This decision refines the earlier Discovery Map concept toward a lightweight functionality catalog rather than a connected semantic graph. The automatic generation and structured projection pipeline remain applicable, but their derived index and viewer should be correspondingly minimal.
+- This decision does not choose the storage format, viewer technology, generator technology, repository placement, synchronization mechanism, visual styling, implementation, files, branches, Pull Requests, or merge; those remain undecided and unauthorized.
+
 ## Pending Implementation / Verification
 - Validate cross-chat discovery and update behavior in practice; ChatGPT does not guarantee execution of tools on every turn.
 - Confirm whether future baseline updates consistently capture all relevant approved decisions.
