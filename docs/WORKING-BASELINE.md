@@ -83,6 +83,18 @@
 - This decision refines the earlier Discovery Map concept toward a lightweight functionality catalog rather than a connected semantic graph. The automatic generation and structured projection pipeline remain applicable, but their derived index and viewer should be correspondingly minimal.
 - This decision does not choose the storage format, viewer technology, generator technology, repository placement, synchronization mechanism, visual styling, implementation, files, branches, Pull Requests, or merge; those remain undecided and unauthorized.
 
+
+## Approved Working Decision — Minimal Discovery Projection Contract (2026-11-19)
+- Define the derived projection around `Functionality` records containing only a stable identifier, name, concise description, source reference, Business Rules, and Pending Items.
+- Define each `BusinessRule` with a stable identifier, text, authority state, and source. Permit only two user-facing rule states: **Approved Working** (explicitly approved and persisted in the Working Baseline, but not yet incorporated into its designated official source) and **Authoritative** (incorporated into the current official repository source).
+- Define each `PendingItem` with a stable identifier, text, reason, origin, and source. Permit the initial reasons **Needs Definition**, **Needs Approval**, and **Needs Verification**; keep them in one visible pending collection rather than separate taxonomies.
+- Treat a conversation as an item's origin, never as its sole recoverable source. Automatically persist every map-visible pending item or approved working rule in the Working Baseline and verify that publication before reporting the map update as successful. Recording an item as pending does not approve its content.
+- Use only **Working Baseline** and **Official Repository** as initial recoverable source kinds. A source reference contains only kind and location. Do not include a per-item revision in the projection; regenerate the small derived index from current sources to maintain freshness. This refines and supersedes the earlier per-item revision-preservation expectation in the Structured Discovery Projection Pipeline.
+- Keep Jira outside the projection contract and outside the source kinds. Jira manages Epics, Stories, tasks, priorities, Sprints, assignees, blockers, and delivery progress; it may link to definitions but does not replace their designated sources.
+- Derive rule and pending counts at view time. Keep visual styling, layout, history, users, comments, Stories, Sprints, capabilities, problems, domain concepts, scenarios, Acceptance Criteria, and semantic graph relationships outside the initial projection.
+- Show only the current effective view. Git, Jira, and conversation systems retain their own history; the Discovery Map does not duplicate it.
+- This decision establishes the minimum conceptual data contract only. Storage format, viewer technology, generator implementation, repository placement, synchronization implementation, files, branches, Pull Requests, and merge remain undecided and unauthorized.
+
 ## Pending Implementation / Verification
 - Validate cross-chat discovery and update behavior in practice; ChatGPT does not guarantee execution of tools on every turn.
 - Confirm whether future baseline updates consistently capture all relevant approved decisions.
