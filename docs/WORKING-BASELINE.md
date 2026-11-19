@@ -149,6 +149,17 @@
 - Treat documentation as authoring guidance and the implemented parser, validator, and verification tests as the enforceable guarantee. The single durable location, bootstrap integration, implementation form, and enforcement mechanism for this contract remain to be designed and explicitly approved before implementation.
 - This decision establishes the extraction principle only. It does not authorize a new documentation file, contract placement, schema or parser implementation, tests, code, files outside the permitted Working Baseline publication, development branches, Pull Requests, or merge.
 
+
+## Approved Working Decision — Contract-Guided Authoring and Deterministic Markdown Rendering (2026-11-20)
+- Do not allow a chat agent to invent or freely compose the persisted Markdown structure for Discovery records based on its own interpretation.
+- Require the agent to express each proposed change as a transient structured change conforming to the approved Discovery contract. The contract determines record types, required fields, allowed values, identity rules, ownership, authority states, pending reasons, and permitted transitions.
+- Keep that structured change transient; it is an input to validation and rendering, not another persisted source of product definitions.
+- Use AI only to propose the semantic summary of the active conversation. Require human approval when that summary constitutes a material decision, and require the agent to ask for clarification or classify an item as pending when required meaning is missing or ambiguous rather than inventing it.
+- Validate the transient structured change before persistence. A deterministic renderer then produces the canonical Markdown representation in the designated authorized source.
+- After publication, re-read and parse the persisted Markdown and verify that it represents the same validated structured change before reporting the source update as successfully captured or refreshing the Discovery projection.
+- Keep structural concerns deterministic: fields, allowed values, identifiers, state transitions, ordering or canonical rendering rules, source ownership, and validation outcomes. Human authorization remains responsible for the meaning of material decisions.
+- This decision establishes the conceptual authoring and round-trip verification behavior only. The contract's canonical repository location, executable representation, renderer and validator technology, integration mechanism, implementation, tests, code, files outside the permitted Working Baseline publication, development branches, Pull Requests, and merge remain undecided and unauthorized.
+
 ## Approved Working Context — Participant Management (2026-11-20)
 
 **Authority classification:** Approved but unpersisted working context, now recorded in the Working Baseline. It is not yet an authoritative product specification or Product Backlog item.
