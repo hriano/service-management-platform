@@ -95,6 +95,17 @@
 - Show only the current effective view. Git, Jira, and conversation systems retain their own history; the Discovery Map does not duplicate it.
 - This decision establishes the minimum conceptual data contract only. Storage format, viewer technology, generator implementation, repository placement, synchronization implementation, files, branches, Pull Requests, and merge remain undecided and unauthorized.
 
+
+## Approved Working Decision — Single-File JSON Discovery Projection (2026-11-20)
+- Store the complete initial Discovery Map derived index in one generated JSON file containing all Functionality records and their Business Rules and Pending Items, following the approved Minimal Discovery Projection Contract.
+- Treat this JSON as a disposable, regenerable projection optimized for the local read-only viewer. It has no independent authority and must not be edited as a source of product definitions.
+- On a relevant source change, rebuild the complete projection from the current Working Baseline and official repository sources, validate the complete result deterministically, and replace the previous JSON atomically only after successful validation.
+- Keep the viewer separate from generation and validation. The viewer reads the generated JSON and derives presentation-only values such as rule and pending-item counts.
+- Do not initially divide the projection into one JSON file per functionality. That alternative adds catalog coordination, multi-file loading, and orphan or partial-update risks without a demonstrated need at the expected SMP scale.
+- Do not initially use SQLite. Its tables, queries, schema migrations, access library, and browser integration add maintenance without a current requirement for transactional writes, complex queries, concurrent access, or partial loading.
+- Reconsider partitioned JSON or SQLite only when measured behavior across the complete SMP map demonstrates a concrete limitation, such as unacceptable generation or loading time, memory use, file size, inspection difficulty, or a newly approved query or concurrency requirement.
+- This decision selects the conceptual initial storage format only. It does not approve a JSON schema implementation, file or repository location, viewer or generator technology, synchronization mechanism, code, files, development branches, Pull Requests, or merge.
+
 ## Approved Working Context — Participant Management (2026-11-20)
 
 **Authority classification:** Approved but unpersisted working context, now recorded in the Working Baseline. It is not yet an authoritative product specification or Product Backlog item.
