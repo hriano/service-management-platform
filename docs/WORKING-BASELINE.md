@@ -127,6 +127,17 @@
 - Preserve the ability to replace the viewer technology later without changing the authoritative sources or the approved projection contract. Any future access from other devices requires a separate decision covering hosting, network exposure, privacy, and access control.
 - This decision selects the conceptual initial viewer approach only. It does not authorize implementation, code, files, repository placement, visual design, concrete server tooling, cross-device access, development branches, Pull Requests, or merge.
 
+
+## Approved Working Decision — Single-Operation Local Discovery Refresh (2026-11-20)
+- Provide one idempotent local **Update Discovery Map** operation as the only initial orchestration path for refreshing the derived projection. Given the same current sources, repeated execution must produce the same valid projection.
+- The operation synchronizes or reads the latest available Working Baseline and official repository sources, generates the complete single-file JSON projection, validates the complete result deterministically, and atomically replaces the previous JSON only after successful validation.
+- Invoke this same operation automatically after a relevant source publication when the assistant has verified access to the computer or execution environment hosting the local map.
+- Use the same operation as part of the local viewer startup path, before opening or presenting the map. This allows a Working Baseline update made from another device to be incorporated when the map is next opened on the development computer.
+- If source synchronization, generation, validation, or replacement fails, retain the last valid local JSON and report that the map was not refreshed. A successful GitHub publication must not be reported as a successful local map update unless local regeneration is also verified.
+- A viewer that is already open does not by itself retrieve remote repository changes or regenerate the projection. Initially, it requires the same Update Discovery Map operation or reopening through the startup path.
+- Do not initially introduce a permanent daemon, file watcher, webhook, Git hook, or CI workflow for refresh orchestration. Reconsider such mechanisms only if observed use demonstrates that startup and in-workflow refresh are insufficient.
+- This decision establishes the conceptual trigger and refresh behavior only. It does not authorize implementation, concrete commands or tools, network exposure, background services, CI configuration, code, files, repository placement, development branches, Pull Requests, or merge.
+
 ## Approved Working Context — Participant Management (2026-11-20)
 
 **Authority classification:** Approved but unpersisted working context, now recorded in the Working Baseline. It is not yet an authoritative product specification or Product Backlog item.
