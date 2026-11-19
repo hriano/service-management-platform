@@ -1,6 +1,6 @@
 # SMP — Working Baseline
 
-**Status:** Active — Initial checkpoint
+**Status:** Active — Shared working checkpoint
 **Purpose:** Shared, temporary conversational progress between authoritative repository checkpoints.
 **Official baseline:** `main:docs/STATUS.md` (read at initialization; blob SHA `5128eb9f015df9ac7f72db13cf59c4400f50af7b`).
 **Authority:** This file does not replace or override `docs/STATUS.md`, `docs/PROJECT.md`, approved specifications, or ADRs.
@@ -95,15 +95,193 @@
 - Show only the current effective view. Git, Jira, and conversation systems retain their own history; the Discovery Map does not duplicate it.
 - This decision establishes the minimum conceptual data contract only. Storage format, viewer technology, generator implementation, repository placement, synchronization implementation, files, branches, Pull Requests, and merge remain undecided and unauthorized.
 
+## Approved Working Context — Participant Management (2026-11-20)
+
+**Authority classification:** Approved but unpersisted working context, now recorded in the Working Baseline. It is not yet an authoritative product specification or Product Backlog item.
+
+**Identifier note:** The `PM-*` identifiers below are stable working references for this baseline and the Discovery Map projection. They are not official Story, Acceptance Criterion, Jira, or specification identifiers.
+
+### Operational Problem
+
+#### PM-OP-01 — Inconsistent and unreliable participant registration
+
+> El registro de nuevos participantes no tiene un proceso definido que garantice datos consistentes, búsquedas efectivas e información fidedigna. Los datos almacenados pueden estar incompletos, no se puede identificar fácilmente si pertenecen a un participante específico, lo que genera desconfianza en la información. Se necesita invertir en tiempos largos para reconfirmar la información y aun así se pueden generar errores, como solicitud de información a personas equivocadas. Se hacen uso de reprocesos de verificación para determinar la fidelidad de un dato y participan diferentes personas del staff quienes no siguen un procedimiento estándar, adicionalmente se almacenan los datos en diferentes fuentes, no existe una fuente de verdad consolidada.
+
+- Origin: Product & Requirements working conversation.
+- Status: Approved Working.
+- Related functionality: `PM-FN-01` and the pending participant-search definition.
+
+### Functionality
+
+#### PM-FN-01 — Registro mínimo de un participante nuevo
+
+> El operador registra un nuevo participante con los siguientes datos obligatorios: nombre y apellido del participante y al menos un medio de contacto (teléfono o email). Si el participante no tiene contacto, se registra un contacto diferente con los siguientes datos obligatorios: nombre y apellido y al menos un medio de contacto (teléfono o email). Los datos quedan almacenados y estos pueden ser consultados inmediatamente, obteniendo los datos del participante y/o del contacto cuando corresponda.
+
+- Status: Approved Working.
+- Current boundary: participant search is considered important and must be included in the product work, but its behavior is still pending definition. The functionality is therefore not ready to be treated as a complete Story or approved specification.
+
+### Business Rules
+
+#### PM-BR-01 — Minimum participant data
+- A valid registration requires the participant's first name and last name, plus at least one contact method: email or phone.
+- Status: Approved Working.
+- Related functionality: `PM-FN-01`.
+
+#### PM-BR-02 — Different contact person when the participant has no contact
+- If the participant has no contact, a different contact person is registered with first name, last name, and at least one contact method: email or phone.
+- Status: Approved Working.
+- Related functionality: `PM-FN-01`.
+- Preserved ambiguity: the meaning of “contact” must still be clarified so it cannot be confused with “contact method.”
+
+#### PM-BR-03 — Contact ownership and identification
+- When the contact details belong to a person different from the participant, that person's first name and last name must be registered and the person must be identified as the contact.
+- Status: Approved Working.
+- Related functionality: `PM-FN-01`.
+- Preserved ambiguity: the statement that the participant registration must indicate “si es el participante” still requires clarification.
+
+#### PM-BR-04 — Nonblank contact method
+- A phone or email is considered provided only when it contains at least one non-whitespace character.
+- Status: Approved Working.
+- Related functionality: `PM-FN-01`.
+
+#### PM-BR-05 — Storage and immediate consultation
+- The registration data is stored and can be consulted immediately, returning participant data and contact-person data when applicable.
+- Status: Approved Working.
+- Related functionality: `PM-FN-01`.
+- Preserved boundary: immediate consultation does not yet define the behavior of general participant search.
+
+### Approved Scope Exclusions
+
+#### PM-SE-01 — Phone format validation
+- Phone-format validation is not included for now.
+- Status: Approved Working scope exclusion.
+- Related functionality: `PM-FN-01`.
+
+#### PM-SE-02 — Email format validation
+- Email-format validation is not included for now.
+- Status: Approved Working scope exclusion.
+- Related functionality: `PM-FN-01`.
+
+#### PM-SE-03 — Relationship type
+- The relationship type between the participant and a different contact person is not included for now.
+- Status: Approved Working scope exclusion.
+- Related functionality: `PM-FN-01`.
+
+### Pending Items
+
+#### PM-Q-01 — Search fields
+- Text: Define which participant or contact-person data may be used to search.
+- Reason: Needs Definition.
+- Affects: participant search and the boundary of `PM-FN-01`.
+- Discussed but unapproved alternatives: participant first name, participant last name, participant phone, participant email, contact-person phone, and contact-person email. Search by date or service has no approved definition.
+- Source: Working Baseline; origin is the Product & Requirements conversation.
+
+#### PM-Q-02 — Search matching
+- Text: Define whether each search field uses exact, partial, or another matching behavior.
+- Reason: Needs Definition.
+- Affects: participant search.
+- Discussed but unapproved alternatives: exact and partial matching.
+- Source: Working Baseline; origin is the Product & Requirements conversation.
+
+#### PM-Q-03 — Case and accent handling
+- Text: Define whether searches ignore letter case and diacritics.
+- Reason: Needs Definition.
+- Affects: participant search.
+- Source: Working Baseline; origin is the Product & Requirements conversation.
+
+#### PM-Q-04 — Multiple matches
+- Text: Define the behavior when a search returns more than one participant.
+- Reason: Needs Definition.
+- Affects: participant search.
+- Source: Working Baseline; origin is the Product & Requirements conversation.
+
+#### PM-Q-05 — Search-result content
+- Text: Define which participant and contact-person data is shown in search results.
+- Reason: Needs Definition.
+- Affects: participant search and `PM-BR-05`.
+- Source: Working Baseline; origin is the Product & Requirements conversation.
+
+#### PM-Q-06 — No-result behavior
+- Text: Define the behavior when no participant matches the search.
+- Reason: Needs Definition.
+- Affects: participant search.
+- Source: Working Baseline; origin is the Product & Requirements conversation.
+
+#### PM-Q-07 — Shared contact data
+- Text: Define the expected behavior when the same phone or email is associated with more than one participant or contact person.
+- Reason: Needs Definition.
+- Affects: participant search, identification, and possible duplicate handling.
+- Source: Working Baseline; origin is the Product & Requirements conversation.
+
+#### PM-Q-08 — Immediate consultation versus general search
+- Text: Clarify whether immediate consultation after registration and later participant search are the same product behavior or separate behaviors.
+- Reason: Needs Definition.
+- Affects: `PM-BR-05` and participant search.
+- Source: Working Baseline; origin is the Product & Requirements conversation.
+
+#### PM-Q-09 — “Contact” terminology
+- Text: Distinguish unambiguously between a contact method and a different contact person.
+- Reason: Needs Definition.
+- Affects: `PM-FN-01`, `PM-BR-02`, `PM-BR-03`, scenarios, and Acceptance Criteria.
+- Source: Working Baseline; origin is the Product & Requirements conversation.
+
+#### PM-Q-10 — Cardinality
+- Text: Define how many contact methods and different contact persons a participant registration may contain within this slice.
+- Reason: Needs Definition.
+- Affects: `PM-FN-01`, business rules, and scenarios.
+- Source: Working Baseline; origin is the Product & Requirements conversation.
+
+#### PM-Q-11 — Duplicate handling
+- Text: Define whether and how a new participant registration is checked against existing participant data.
+- Reason: Needs Definition.
+- Affects: registration reliability, search, and the operational problem in `PM-OP-01`.
+- Source: Working Baseline; origin is the Product & Requirements conversation.
+
+#### PM-Q-12 — Final scenarios and Acceptance Criteria
+- Text: Reconcile and explicitly approve the scenarios and verifiable Acceptance Criteria after the search behavior and remaining terminology are defined.
+- Reason: Needs Approval.
+- Affects: readiness of `PM-FN-01` as a Story or specification.
+- Source: Working Baseline; origin is the Product & Requirements conversation.
+
+### Unverified Scenario Work
+
+The following examples were explored during the learning exercise but were not explicitly approved as final scenarios or Acceptance Criteria:
+
+- `PM-SC-01`: successful registration using participant name, last name, and email.
+- `PM-SC-02`: successful registration using participant name, last name, and phone, followed by later consultation.
+- `PM-SC-03`: successful registration when a participant without their own phone or email has a complete different contact person.
+- `PM-SC-04`: rejection when the different contact person's last name is missing.
+- `PM-SC-05`: rejection when neither the participant nor the different contact person provides a phone or email.
+- The early incomplete example containing only “Claudia” and a phone did not establish a complete expected outcome.
+
+These examples must not be treated as approved behavior until Product & Requirements explicitly reconciles and approves them.
+
+### Conflict Requiring Preservation
+
+#### PM-CF-01 — Phone containing letters
+- An exploratory scenario proposed rejecting phone `2451 A25568` because it contains a letter.
+- That scenario was not explicitly approved and conflicts with the later approved exclusion `PM-SE-01`, which places phone-format validation outside the current scope.
+- Effective working position: do not use the letter-rejection scenario as current behavior or Acceptance Criteria. Any future change requires an explicit Product & Requirements decision.
+
+### Current Product Working Position
+
+- Sufficiently defined: the operational problem, the minimum registration functionality, required participant data, the alternative different contact person, nonblank presence of phone or email, storage and immediate consultation, and current scope exclusions.
+- Still pending: complete participant-search behavior, terminology, cardinality, duplicate handling, final scenarios, Acceptance Criteria, and Story consolidation.
+- Not usable as approved requirements: the unverified scenarios, phone-letter rejection, unapproved search fields or matching semantics, search by date or service, and simulated interview details.
+- Next Product & Requirements step: define participant search one decision at a time, beginning with the permitted search fields; then reconcile scenarios and approve verifiable Acceptance Criteria.
+- This working position does not authorize Architecture, implementation, code changes, Jira changes, branches, Pull Requests, or merge.
+
+
 ## Pending Implementation / Verification
 - Validate cross-chat discovery and update behavior in practice; ChatGPT does not guarantee execution of tools on every turn.
 - Confirm whether future baseline updates consistently capture all relevant approved decisions.
 - Decide whether the proposed working rules need formal incorporation into the official engineering workflow through its existing approval process.
 
 ## Checkpoint Scope
-- This initial checkpoint records only the explicitly approved context-management decisions above.
-- It does **not** assert that all earlier SMP product decisions from other conversations have been recovered.
-- No change to official Current Work, Next Step, Sprint status, or product specifications is asserted here.
+- This checkpoint records the explicitly approved working decisions above and the classified Participant Management working context recovered from the current Product & Requirements conversation.
+- It does **not** assert that product decisions from other conversations have been recovered.
+- Participant Management entries remain working context until incorporated into their designated official repository source through the authorized workflow.
+- No change to official Current Work, Next Step, Sprint status, Jira, or product specifications is asserted here.
 
 ## Publication Protocol
 1. Read `main:docs/STATUS.md` and this file from `context/working-baseline`.
