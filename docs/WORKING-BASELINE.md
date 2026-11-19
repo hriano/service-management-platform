@@ -138,6 +138,17 @@
 - Do not initially introduce a permanent daemon, file watcher, webhook, Git hook, or CI workflow for refresh orchestration. Reconsider such mechanisms only if observed use demonstrates that startup and in-workflow refresh are insufficient.
 - This decision establishes the conceptual trigger and refresh behavior only. It does not authorize implementation, concrete commands or tools, network exposure, background services, CI configuration, code, files, repository placement, development branches, Pull Requests, or merge.
 
+
+## Approved Working Decision — Deterministic Extraction from Authorized Markdown (2026-11-20)
+- Continue using the authorized Markdown sources for Discovery definitions; do not create parallel JSON, YAML, or database copies of those definitions as generator inputs.
+- Define a minimal, stable, mechanically recognizable Markdown record contract for Functionality, Business Rule, and Pending Item entries. The contract covers the required headings or boundaries, stable identifiers, required labeled fields, allowed values, and ownership by a Functionality.
+- Use chat assistance when converting an active conversation into a proposed or pending structured source entry, but do not use AI to reinterpret the complete Markdown source set during projection regeneration.
+- Make the generator parse only records that conform to the documented contract and derive recoverable source locations from their repository path and stable entry anchor where practical.
+- Make deterministic validation reject malformed records, duplicate identifiers, invalid states or pending reasons, missing required fields, and invalid Functionality ownership. Do not silently omit or reinterpret an invalid map-relevant record.
+- When the same stable item has both Approved Working and Authoritative representations, project one current effective item using the official repository source as the higher-authority representation.
+- Treat documentation as authoring guidance and the implemented parser, validator, and verification tests as the enforceable guarantee. The single durable location, bootstrap integration, implementation form, and enforcement mechanism for this contract remain to be designed and explicitly approved before implementation.
+- This decision establishes the extraction principle only. It does not authorize a new documentation file, contract placement, schema or parser implementation, tests, code, files outside the permitted Working Baseline publication, development branches, Pull Requests, or merge.
+
 ## Approved Working Context — Participant Management (2026-11-20)
 
 **Authority classification:** Approved but unpersisted working context, now recorded in the Working Baseline. It is not yet an authoritative product specification or Product Backlog item.
@@ -323,6 +334,7 @@ These examples must not be treated as approved behavior until Product & Requirem
 - Agents should incorporate these checks into their authorized workflows and accurately distinguish verified remote publication from verified local synchronization. Concrete automation and implementation are not authorized by this decision.
 
 ## Pending Implementation / Verification
+- Define and approve the single repository location and operational enforcement path for the Discovery Markdown record contract so that assistants read it, the generator and validator implement it, and verification tests detect divergence.
 - Validate cross-chat discovery and update behavior in practice; ChatGPT does not guarantee execution of tools on every turn.
 - Confirm whether future baseline updates consistently capture all relevant approved decisions.
 - Decide whether the proposed working rules need formal incorporation into the official engineering workflow through its existing approval process.
