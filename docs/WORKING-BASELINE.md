@@ -315,6 +315,13 @@ These examples must not be treated as approved behavior until Product & Requirem
 - This working position does not authorize Architecture, implementation, code changes, Jira changes, branches, Pull Requests, or merge.
 
 
+## Approved Working Decision — General Repository Synchronization (2026-11-20)
+- Apply safe repository synchronization across SMP, not only to the Discovery Map. Changes may originate locally or remotely depending on the tool and authorized work; this does not expand existing write permissions or supersede the official knowledge-persistence and PR workflow.
+- Check local repository status and fetch remote changes at the start of development sessions, before starting new tasks or creating authorized branches, and before resuming existing tasks as appropriate. Check divergence and protect uncommitted work.
+- Favor safe synchronization after authorized remote changes when verified local access exists, according to the affected branch. Do not blindly pull, overwrite local changes, or integrate unapproved modifications.
+- Preserve the existing official requirement to synchronize local main and verify repository state after an approved merge. ChatGPT's standing direct publication authorization remains limited to the dedicated Working Baseline file and branch; official documentation and code changes follow the established authorized execution and PR process.
+- Agents should incorporate these checks into their authorized workflows and accurately distinguish verified remote publication from verified local synchronization. Concrete automation and implementation are not authorized by this decision.
+
 ## Pending Implementation / Verification
 - Validate cross-chat discovery and update behavior in practice; ChatGPT does not guarantee execution of tools on every turn.
 - Confirm whether future baseline updates consistently capture all relevant approved decisions.
