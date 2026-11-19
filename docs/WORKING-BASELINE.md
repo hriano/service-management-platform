@@ -117,6 +117,16 @@
 - Do not rely on passive detection that a conversation has ended. The closure review is triggered by an explicit user instruction such as “finalicemos la sesión.”
 - This decision establishes a conceptual session-continuity rule only. It does not authorize changes outside the Working Baseline, automatic access to past conversations, implementation, code, files, development branches, Pull Requests, or merge.
 
+
+## Approved Working Decision — Minimal Local Static Discovery Viewer (2026-11-20)
+- Use a minimal local static web viewer for the initial Discovery Map, implemented conceptually with HTML, CSS, and a small amount of browser JavaScript.
+- Do not initially use React, TypeScript, React Flow, a custom backend, authentication, or a database for the viewer. The approved functionality-centered projection does not currently require a component framework, graph rendering, server-side behavior, or transactional storage.
+- Keep the viewer separate from the generated single-file JSON projection. The viewer reads the projection without interpreting, approving, or modifying requirements.
+- Provide a system-level functionality list or search and a selected-functionality detail view showing its name, concise description, source, Business Rules, authority states, Pending Items, and pending reasons.
+- Use a simple local static-file server to make the viewer and JSON available to the browser, avoiding browser restrictions associated with loading JSON directly through `file://`. Selection of the concrete local server mechanism remains an implementation decision.
+- Preserve the ability to replace the viewer technology later without changing the authoritative sources or the approved projection contract. Any future access from other devices requires a separate decision covering hosting, network exposure, privacy, and access control.
+- This decision selects the conceptual initial viewer approach only. It does not authorize implementation, code, files, repository placement, visual design, concrete server tooling, cross-device access, development branches, Pull Requests, or merge.
+
 ## Approved Working Context — Participant Management (2026-11-20)
 
 **Authority classification:** Approved but unpersisted working context, now recorded in the Working Baseline. It is not yet an authoritative product specification or Product Backlog item.
