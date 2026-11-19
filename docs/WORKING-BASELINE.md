@@ -345,6 +345,7 @@ These examples must not be treated as approved behavior until Product & Requirem
 - Agents should incorporate these checks into their authorized workflows and accurately distinguish verified remote publication from verified local synchronization. Concrete automation and implementation are not authorized by this decision.
 
 ## Pending Implementation / Verification
+- Next-session first task: decide and authorize the promotion of the Discovery session-closure integrity review into the official repository workflow, with the canonical procedure in `main:docs/ENGINEERING-WORKFLOW.md` and a concise mandatory reference in `main:AGENTS.md`, avoiding duplicated instructions. No official-file change, branch, or Pull Request is yet authorized.
 - Define and approve the single repository location and operational enforcement path for the Discovery Markdown record contract so that assistants read it, the generator and validator implement it, and verification tests detect divergence.
 - Validate cross-chat discovery and update behavior in practice; ChatGPT does not guarantee execution of tools on every turn.
 - Confirm whether future baseline updates consistently capture all relevant approved decisions.
