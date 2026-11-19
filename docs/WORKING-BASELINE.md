@@ -106,6 +106,17 @@
 - Reconsider partitioned JSON or SQLite only when measured behavior across the complete SMP map demonstrates a concrete limitation, such as unacceptable generation or loading time, memory use, file size, inspection difficulty, or a newly approved query or concurrency requirement.
 - This decision selects the conceptual initial storage format only. It does not approve a JSON schema implementation, file or repository location, viewer or generator technology, synchronization mechanism, code, files, development branches, Pull Requests, or merge.
 
+
+## Approved Working Decision — Discovery Session Closure Integrity Review (2026-11-20)
+- Perform an integrity review of the active Discovery working conversation when the user explicitly requests session closure, even when the session produced no approved decision.
+- During that review, identify any explicitly approved decision not yet published, map-relevant pending item needed to resume the work, and contradiction or matter requiring verification that would otherwise remain only in the conversation.
+- Persist relevant pending items in the Working Baseline using the approved Pending Item classification. Recording a pending item preserves it for follow-up and does not approve its proposed content, alternatives, or outcome.
+- Do not copy the complete conversation or preserve casual ideas, discarded alternatives, repetition, or other material that is not needed to understand the system or resume the work.
+- If the review finds a relevant change, publish it to the Working Baseline and verify the resulting repository version before reporting the session as safely captured. If it finds no relevant change, do not create a baseline update.
+- Continue publishing explicitly approved decisions during the session when they occur; the closure review is a final integrity safeguard, not a reason to delay known publications.
+- Do not rely on passive detection that a conversation has ended. The closure review is triggered by an explicit user instruction such as “finalicemos la sesión.”
+- This decision establishes a conceptual session-continuity rule only. It does not authorize changes outside the Working Baseline, automatic access to past conversations, implementation, code, files, development branches, Pull Requests, or merge.
+
 ## Approved Working Context — Participant Management (2026-11-20)
 
 **Authority classification:** Approved but unpersisted working context, now recorded in the Working Baseline. It is not yet an authoritative product specification or Product Backlog item.
